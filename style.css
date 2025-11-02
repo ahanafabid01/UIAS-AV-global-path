@@ -48,6 +48,81 @@ nav ul li a:hover {
   color: #ffcc00;
 }
 
+/* Mobile navigation toggle */
+.nav-toggle {
+  display: none; /* shown on small screens */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Toggle animation when menu open */
+.navbar.nav-open .nav-toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.navbar.nav-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+}
+.navbar.nav-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Responsive navbar behaviour */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 6%;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
+  .nav-toggle {
+    display: flex;
+    gap: 6px;
+    z-index: 1100;
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    padding: 12px 6%;
+  }
+
+  .navbar.nav-open nav {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 0.98rem;
+  }
+}
+
 /* ---------- HERO SLIDER ---------- */
 .hero {
   position: relative;
